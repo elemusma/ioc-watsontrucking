@@ -147,9 +147,19 @@
 /* end of full width row */
 
 /* start of testimonials */
-@media screen and (max-width:767px) {
+@media only screen and (max-width:767px) {
     .img-quotes {
         left: 25px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .testimonials button.owl-prev {
+        left: -10%;
+    }
+
+    .testimonials button.owl-next {
+        right: -10%;
     }
 }
 
