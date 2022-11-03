@@ -219,9 +219,9 @@ $counterList = 0;
 while(have_rows('titles')): the_row();
 $counterList++;
 if($counterList == 1){
-    echo '<li class="text-accent" style="font-size:150%;">' . get_sub_field('title') . '</li>';    
+    echo '<li class="text-accent" style="font-size:150%;white-space:nowrap;">' . get_sub_field('title') . '</li>';    
 } else {
-    echo '<li class="text-accent mt-5" style="font-size:150%;">' . get_sub_field('title') . '</li>';
+    echo '<li class="text-accent mt-5" style="font-size:150%;white-space:nowrap;">' . get_sub_field('title') . '</li>';
 }
 endwhile;
 echo '</ul>';
@@ -324,6 +324,126 @@ endwhile; endif;
 // end of full width row
 
 /**
+ * ==============================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
+ */
+
+// start of fleet service
+if(have_rows('gallery_fleet_service')): while(have_rows('gallery_fleet_service')): the_row();
+echo '<section class="position-relative overflow-h full-width-row w-100" style="padding:100px 0;">';
+
+$bgImg = get_sub_field('background_image');
+
+echo wp_get_attachment_image($bgImg['id'],'full','',['class'=>'position-absolute w-100 h-100','style'=>'top:0;left:0;object-fit:cover;']);
+
+echo '<div class="container-fluid">';
+echo '<div class="row">';
+
+echo '<div class="col-12 text-center" style="">';
+echo get_sub_field('content');
+echo '</div>';
+
+echo '<div class="col-12 text-center" style="">';
+echo wp_get_attachment_image(80,'full','',['class'=>'w-75 h-auto position-relative m-auto','style'=>'']);
+echo '</div>';
+
+$gallery = get_sub_field('gallery');
+
+if( $gallery ):
+    $galleryCounter = 0;
+        foreach( $gallery as $image ):
+            $galleryCounter++;
+
+            if($galleryCounter == 1){
+                echo '<div class="col-lg-4 overflow-h p-0">';
+                // echo '</div>';
+            } else {
+                echo '<div class="col-lg-4 overflow-h pr-0 pl-lg-3 pl-md-0">';
+            }
+            
+            echo '<div class="position-relative img-hover overflow-h">';
+            echo '<a href="' . wp_get_attachment_image_url($image['id'], 'full') . '" data-lightbox="fleet-service-gallery">';
+            echo wp_get_attachment_image($image['id'], 'full','',['class'=>'w-100 img-portfolio','style'=>'height:450px;object-fit:cover;'] );
+            echo '</a>';
+            
+            echo '<div class="position-absolute bg-accent text-white text-center w-100 pt-3 pb-3" style="bottom:0;left:0;">';
+            echo '<span><strong>' . $image['title'] . '</strong></span>';
+            echo '</div>';
+            echo '</div>';
+
+            echo '</div>';
+        endforeach;
+endif;
+
+echo '</div>';
+echo '</div>';
+
+
+
+echo '</section>';
+endwhile; endif;
+// end of fleet service
+
+ /**
+ * ==============================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
+ */
+
+ // start of testimonials
+echo '<section class="pt-5 pb-5 testimonials bg-black text-white position-relative z-1" style="">';
+echo '<div class="container">';
+echo '<div class="row">';
+echo '<div class="col-12 text-center">';
+
+$testimonialsGroup = get_field('testimonials_content');
+$tTitle = $testimonialsGroup['title'];
+$tContent = $testimonialsGroup['content'];
+
+echo '<h3 class="">' . $tTitle . '</h3>';
+
+if($tContent) {
+echo $tContent;
+}
+echo '</div>';
+echo '<div class="testimonials-carousel owl-carousel owl-theme">';
+
+$counterTestimonial = 0;
+if(have_rows('testimonials')): while(have_rows('testimonials')): the_row(); 
+$counterTestimonial++;
+
+echo '<div class="col-testimonial mt-2 mb-2 pl-md-0 pr-md-0 pl-5 pr-4" data-aos="fade-up">';
+
+echo '<img src="https://insideoutcreative.io/wp-content/uploads/2022/11/Quotes.png" style="width:25px;height:25px;object-fit:contain;" class="bg-img position-absolute img-quotes" alt="">';
+echo '<div class="position-relative pl-5">';
+
+echo '<small class="gray-text-1">';
+echo '<p>' . get_sub_field('content') . '</p>';
+echo '</small>';
+
+echo '<div class="row align-items-center">';
+$testimonialsImage = get_sub_field('headshot'); 
+if($testimonialsImage){
+echo '<div class="col-lg-3 col-5">';
+echo wp_get_attachment_image($testimonialsImage['id'],'full','',['class'=>'img-testimonial h-auto w-100']); 
+echo '</div>';
+}
+
+echo '<div class="col-lg-9 col-7">';
+echo '<small>';
+echo '<span class="h6"><strong>' . get_sub_field('name') . '</strong></span><br><span class="d-block">' . get_sub_field('job_title') . '</span>';
+
+echo '</small>';
+echo '</div>';
+echo '</div>';
+echo '</div>';
+echo '</div>';
+endwhile; else : endif;
+echo '</div>';
+
+echo '</div>';
+echo '</div>';
+echo '</section>';
+// end of testimonials
+
+ /**
  * ==============================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
  */
 

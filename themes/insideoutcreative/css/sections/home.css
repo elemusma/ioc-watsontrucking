@@ -135,7 +135,6 @@
     overflow: hidden;
     top: 2.5%;
     left: 2.5%;
-    /* border: 2px solid white; */
     background: #8bc3c9;
     mix-blend-mode: multiply;
     transition: all 0.25s ease-in-out;
@@ -146,3 +145,12 @@
 }
 
 /* end of full width row */
+
+/* start of testimonials */
+@media screen and (max-width:767px) {
+    .img-quotes {
+        left: 25px;
+    }
+}
+
+/* end of testimonials */
