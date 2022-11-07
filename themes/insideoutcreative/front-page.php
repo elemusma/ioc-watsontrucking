@@ -2,7 +2,7 @@
 
 // start of intro
 if(have_rows('intro_columns')): while(have_rows('intro_columns')): the_row();
-echo '<section class="position-relative">';
+echo '<section class="position-relative a">';
 echo '<div class="container-fluid">';
 echo '<div class="row">';
 
