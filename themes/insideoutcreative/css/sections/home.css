@@ -97,6 +97,11 @@
         margin-top: -160px;
         transform: translate(-35px, 140px);
     }
+
+    .col-services-gallery .col-services-gallery-content:nth-child(2) .heading {
+        bottom: unset;
+        top: 20px;
+    }
 }
 
 /* end of services */

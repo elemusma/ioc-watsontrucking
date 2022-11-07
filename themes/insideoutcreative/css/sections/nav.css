@@ -44,6 +44,12 @@ ul.menu>li>a {
     font-family: 'proxima_novabold';
 }
 
+@media only screen and (max-width:767px) {
+    #menu-contact li:first-child a {
+        padding-left: 0;
+    }
+}
+
 .current-menu-item>a,
 .current_page_parent>a,
 #menu-main-menu>.current_page_item>a,

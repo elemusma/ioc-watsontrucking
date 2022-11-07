@@ -3,7 +3,7 @@
 <section>
 <div class="container">
 <div class="row justify-content-center">
-<div class="col-lg-3 col-md-9 text-center pb-5">
+<div class="col-lg-3 col-md-6 col-8 text-center pb-5">
 <a href="<?php echo home_url(); ?>">
 <?php $logo = get_field('logo','options'); $logoFooter = get_field('logo_footer','options'); 
 if($logoFooter){
@@ -22,7 +22,7 @@ echo wp_get_attachment_image($logo['id'],'full',"",['class'=>'w-100 h-auto']);
 <div class="container">
 <div class="row justify-content-center">
 
-<div class="col-12 text-center text-white">
+<div class="col-12 text-center bold text-black">
     <div class="">
         <?php the_field('website_message','options'); ?>
         <?php echo get_template_part('partials/si'); ?>

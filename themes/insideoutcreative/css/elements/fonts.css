@@ -80,3 +80,10 @@ strong {
 blockquote {
   font-size: 90%;
 }
+
+h1 {
+  font-family: azo-sans-web, sans-serif;
+  font-weight: 900;
+}
+
+/* font-family: azo-sans-web, sans-serif; */

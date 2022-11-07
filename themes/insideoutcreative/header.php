@@ -55,7 +55,7 @@ echo '</div>';
 echo '<div class="col-lg-4 col-md-6">';
     wp_nav_menu(array(
         'menu' => 'Contact',
-        'menu_class'=>'menu d-flex flex-wrap list-unstyled justify-content-center mb-0'
+        'menu_class'=>'menu d-flex flex-wrap list-unstyled justify-content-md-center mb-0'
     )); 
 echo '</div>';
 
@@ -80,7 +80,7 @@ echo '</a>';
 echo '</div>';
 wp_nav_menu(array(
 'menu' => 'primary',
-'menu_class'=>'menu d-flex flex-wrap list-unstyled justify-content-center mb-0'
+'menu_class'=>'menu list-unstyled mb-0'
 )); 
 echo '</div>';
 echo '</div>';

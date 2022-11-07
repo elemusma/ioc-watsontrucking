@@ -251,7 +251,7 @@ if( $gallery ):
         echo '<a href="' . wp_get_attachment_image_url($image['id'], 'full') . '" data-lightbox="services-gallery">';
         echo wp_get_attachment_image($image['id'], 'full','',['class'=>'col-services-gallery-img','style'=>'height:250px;width:300px;object-fit:cover;'] );
         echo '</a>';
-        echo '<span class="position-absolute heading text-white text-center text-shadow h4 w-100" style="bottom:20px;left:0%;transform:translate(0,0);">' . $image['title'] . '</span>';
+        echo '<span class="position-absolute heading text-white text-center text-shadow h2 w-100 text-uppercase bold" style="bottom:20px;left:0%;transform:translate(0,0);">' . $image['title'] . '</span>';
         echo '</div>';
 
         endforeach; 
@@ -276,7 +276,8 @@ endwhile; endif;
 
 // start of full width row
 if(have_rows('gallery_with_hover_effect')): while(have_rows('gallery_with_hover_effect')): the_row();
-echo '<section class="pt-5 pb-5 position-relative overflow-h full-width-row w-100">';
+echo '<section class="pt-5 pb-5 position-relative overflow-h full-width-row w-100" id="">';
+echo '<div id="what-makes-us-different" class="position-absolute" style="top:0px;"></div>';
 
 $gallery = get_sub_field('gallery');
 if( $gallery ): 
@@ -389,7 +390,8 @@ endwhile; endif;
  */
 
  // start of testimonials
-echo '<section class="pt-5 pb-5 testimonials bg-black text-white position-relative z-1" style="">';
+echo '<section class="pt-5 pb-5 testimonials bg-black text-white position-relative z-1" style="" id="">';
+echo '<div id="testimonials" class="position-absolute" style="top:-120px;"></div>';
 echo '<div class="container">';
 echo '<div class="row">';
 echo '<div class="col-12 text-center">';
@@ -450,7 +452,7 @@ echo '</section>';
 
 //  start of contact
 if(have_rows('contact_section')): while(have_rows('contact_section')): the_row();
-echo '<div class="position-relative" style="padding:100px 0;" id="appointment-request">';
+echo '<div class="position-relative" style="padding:100px 0 25px;" id="contact">';
 
 echo '<div class="pt-5 pb-5 mb-5" style="background:#4d4d4d;">';
 echo '<div class="container">';
