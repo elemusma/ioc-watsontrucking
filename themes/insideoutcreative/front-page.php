@@ -285,9 +285,9 @@ if( $gallery ):
         $galleryCounter++;
 
         if($galleryCounter == 1){
-            echo wp_get_attachment_image($image['id'],'full','',['class'=>'w-100 h-100 position-absolute bg-img','style'=>'object-fit:cover;','id'=>'imgFullWidthRowCol0']);
+            echo wp_get_attachment_image($image['id'],'full','',['class'=>'w-100 h-100 position-absolute bg-img d-md-block d-none','style'=>'object-fit:cover;','id'=>'imgFullWidthRowCol0']);
         } else {
-            echo wp_get_attachment_image($image['id'],'full','',['class'=>'w-100 h-100 position-absolute bg-img img-full-width-row-bg','id'=>'imgFullWidthRowCol' . ($galleryCounter-1) . '','style'=>'object-fit:cover;opacity:0;']);
+            echo wp_get_attachment_image($image['id'],'full','',['class'=>'w-100 h-100 position-absolute bg-img d-md-block d-none img-full-width-row-bg','id'=>'imgFullWidthRowCol' . ($galleryCounter-1) . '','style'=>'object-fit:cover;opacity:0;']);
         }
 
     endforeach;
@@ -304,6 +304,7 @@ if( $gallery ):
         $galleryCounterCol++;
         if($galleryCounterCol > 1):
             echo '<div class="col-lg-4 col-md-6 text-white text-center pl-0 pr-0 col-full-width-row" style="padding-top:250px;padding-bottom:250px;" id="fullWidthRowCol' . ($galleryCounterCol-1) . '">';
+            echo wp_get_attachment_image($image['id'],'full','',['class'=>'d-md-none d-block position-absolute w-100 h-100','style'=>'top:0;left:0;object-fit:cover;']);
             echo '<div class="position-absolute col-full-width-row-border"></div>';
             echo '<div class="position-absolute col-full-width-row-background"></div>';
             echo '<div class="position-relative w-100 pt-3 pb-3">';
@@ -357,7 +358,7 @@ if( $gallery ):
                 echo '<div class="col-lg-4 overflow-h p-0">';
                 // echo '</div>';
             } else {
-                echo '<div class="col-lg-4 overflow-h pr-0 pl-lg-3 pl-md-0">';
+                echo '<div class="col-lg-4 overflow-h pr-0 pl-lg-3 pl-0">';
             }
             
             echo '<div class="position-relative img-hover overflow-h">';
@@ -447,32 +448,41 @@ echo '</section>';
  * ==============================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
  */
 
+//  start of contact
+if(have_rows('contact_section')): while(have_rows('contact_section')): the_row();
+echo '<div class="position-relative" style="padding:100px 0;" id="appointment-request">';
 
+echo '<div class="pt-5 pb-5 mb-5" style="background:#4d4d4d;">';
+echo '<div class="container">';
+echo '<div class="row">';
+echo '<div class="col-12 text-center text-white">';
 
-// how to use new image hover effect
-echo '<div class="col-6 col-intro-gallery col mb-1 p-1 overflow-h">';
-echo '<div class="position-relative img-hover w-100">';
-echo '<a href="' . wp_get_attachment_image_url($image['id'], 'full') . '" data-lightbox="image-set">';
-echo wp_get_attachment_image($image['id'], 'full','',['class'=>'w-100 image-intro-gallery','style'=>'object-fit:cover;']);
-echo '</a>';
-echo '</div>';
-echo '</div>';
-
-// popup trigger
-echo '<span class="btn bg-white text-accent apply-now open-modal" id="apply-now" style="">Apply Now</span>';
-
-// popup content
-echo '<div class="modal-content apply-now position-fixed w-100 h-100 z-3">';
-echo '<div class="bg-overlay"></div>';
-echo '<div class="bg-content">';
-echo '<div class="bg-content-inner">';
-echo '<div class="close" id="">X</div>';
-echo '<div>';
-echo get_field('popup_content');
-echo '</div>';
-echo '</div>';
+echo get_sub_field('contact_text_top');
 
 echo '</div>';
 echo '</div>';
+echo '</div>';
+echo '</div>';
+
+echo '<div class="container" style="">';
+echo '<div class="row justify-content-center">';
+echo '<div class="col-md-9" style="padding-bottom:100px;" data-aos="fade-up" data-aos-delay="200">';
+echo '<div class="position-relative p-5 text-center" style="background:#bfb7a5;box-shadow: inset 0px 0px 10px rgba(0,0,0,.25);">';
+echo get_sub_field('contact_form_content');
+echo '</div>';
+echo '</div>';
+
+echo '</div>';
+
+echo '</div>';
+
+
+echo '</div>';
+endwhile; endif;
+//  end of contact
+
+ /**
+ * ==============================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
+ */
 
 get_footer(); ?>

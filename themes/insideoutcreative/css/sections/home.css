@@ -144,6 +144,13 @@
     height: 95%;
 }
 
+@media only screen and (max-width:767px) {
+    .col-full-width-row {
+        padding-top: 100px !important;
+        padding-bottom: 100px !important;
+    }
+}
+
 /* end of full width row */
 
 /* start of testimonials */
