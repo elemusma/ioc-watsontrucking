@@ -309,7 +309,7 @@ if( $gallery ):
             echo '<div class="position-absolute col-full-width-row-border"></div>';
             echo '<div class="position-absolute col-full-width-row-background"></div>';
             echo '<div class="position-relative w-100 pt-3 pb-3">';
-            echo '<div class="position-absolute w-100 h-100" style="background:#b9764c;mix-blend-mode:multiply;opacity:.51;top:0;left:0;"></div>';
+            echo '<div class="position-absolute w-100 h-100" style="background:#53301a;opacity:.51;top:0;left:0;"></div>';
             echo '<div class="position-relative">';
             echo '<span class="mb-0 small" style="color:red;">' . $image['caption'] . '</span>';
             echo '<h2 class="mb-0 h3">' . $image['title'] . '</h2>';

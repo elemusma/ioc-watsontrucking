@@ -140,8 +140,9 @@
     overflow: hidden;
     top: 2.5%;
     left: 2.5%;
-    background: #8bc3c9;
-    mix-blend-mode: multiply;
+    background: #1b4045;
+    opacity: .5;
+    /* mix-blend-mode: multiply; */
     transition: all 0.25s ease-in-out;
 }
 
