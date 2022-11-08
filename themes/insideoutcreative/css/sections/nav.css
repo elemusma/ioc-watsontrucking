@@ -50,6 +50,10 @@ ul.menu>li>a {
     }
 }
 
+.big-phone a {
+    font-size: 1.7rem !important;
+}
+
 .current-menu-item>a,
 .current_page_parent>a,
 #menu-main-menu>.current_page_item>a,

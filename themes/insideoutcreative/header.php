@@ -55,7 +55,7 @@ echo '</div>';
 echo '<div class="col-lg-4 col-md-6">';
     wp_nav_menu(array(
         'menu' => 'Contact',
-        'menu_class'=>'menu d-flex flex-wrap list-unstyled justify-content-md-center mb-0'
+        'menu_class'=>'menu d-flex flex-wrap list-unstyled justify-content-md-center align-items-center mb-0'
     )); 
 echo '</div>';
 
