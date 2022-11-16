@@ -39,6 +39,36 @@ $('.gallery-carousel').owlCarousel({
     items: 1
 });
 
+$('.intro-carousel').owlCarousel({
+    // center: true,
+    loop: false,
+    margin: 10,
+    nav: false,
+    dots: true,
+    // stagePadding:170,
+    autoplay: false,
+    autoplayTimeout: 2500,
+    autoplayHoverPause: false,
+    animateIn: 'fadeIn',
+    animateOut: 'fadeOut',
+    items: 1
+});
+
+$('.fleet-service-carousel').owlCarousel({
+    // center: true,
+    loop: false,
+    margin: 10,
+    nav: true,
+    dots: false,
+    // stagePadding:170,
+    autoplay: false,
+    autoplayTimeout: 2500,
+    autoplayHoverPause: false,
+    animateIn: 'fadeIn',
+    animateOut: 'fadeOut',
+    items: 1
+});
+
 $('.testimonials-carousel').owlCarousel({
     // center: true,
     loop: false,

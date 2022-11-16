@@ -1,0 +1,18 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//SSA//Simply Schedule Appointments 2.4.4.8//EN
+CALSCALE:GREGORIAN
+X-ORIGINAL-URL:https://ecoblastcraft.com/
+X-WR-CALDESC:Appointments from BlastCraft
+TRANSP:OPAQUE
+BEGIN:VEVENT
+UID:ssa_2customer
+DTSTAMP:20210526T021419Z
+LOCATION:https://meet.google.com/dsa-wxyg-kie
+DESCRIPTION:\nCancel/Reschedule link: \nhttps://ecoblastcraft.com/appointments/change/dff7b5ea7d8c7acf03f1fee61d34eac72 \n \nThis event has a web meeting: \nhttps://meet.google.com/dsa-wxyg-kie
+URL;VALUE=URI:
+SUMMARY:Consultation Call (BlastCraft)
+DTSTART:20210527T150000Z
+DTEND:20210527T153000Z
+END:VEVENT
+END:VCALENDAR

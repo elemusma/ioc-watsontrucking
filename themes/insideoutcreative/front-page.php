@@ -4,28 +4,40 @@
 if(have_rows('intro_columns')): while(have_rows('intro_columns')): the_row();
 echo '<section class="position-relative a">';
 echo '<div class="container-fluid">';
-echo '<div class="row">';
 
+if(have_rows('columns_gallery')): 
+    echo '<div class="row">';
+    $columnsGalleryCounter=0;
+    while(have_rows('columns_gallery')): the_row();
+    $columnsGalleryCounter++;
 
+echo '<div class="col-lg-4 col-md-6 pl-0 pr-0 col-intro" data-aos="fade-up">';
+echo '<div class="text-white text-center pt-2 pb-2 content" style="">';
+echo '<h3 class="heading mb-0">' . get_sub_field('title') . '</h3>';
+echo '</div>';
 $gallery = get_sub_field('gallery');
 if( $gallery ): 
-foreach( $gallery as $image ):
-    echo '<div class="col-lg-4 col-md-6 pl-0 pr-0 col-intro" data-aos="fade-up">';
-    echo '<div class="text-white text-center pt-2 pb-2 content" style="">';
-    echo '<h3 class="heading mb-0">' . $image['title'] . '</h3>';
+    echo '<div class="intro-carousel owl-carousel owl-theme">';
+    $galleryCounter=0;
+    foreach( $gallery as $image ):
+        $galleryCounter++;
+        echo '<div class="position-relative pt-1 pl-1 pr-1 overflow-h">';
+        echo '<a href="' . wp_get_attachment_image_url($image['id'], 'full') . '" data-lightbox="image-set-' . $columnsGalleryCounter . '">';
+        echo wp_get_attachment_image($image['id'],'full','',['class'=>'w-100 img-intro img-hover','style'=>'height:250px;object-fit:cover;']);
+        echo '</a>';
+        echo '</div>';
+    endforeach; 
     echo '</div>';
-    echo '<div class="position-relative pt-1 pl-1 pr-1 overflow-h">';
-    echo wp_get_attachment_image($image['id'],'full','',['class'=>'w-100 img-intro img-hover','style'=>'height:250px;object-fit:cover;']);
+endif;
+echo '</div>';
 
-    echo '</div>';
-    echo '</div>';
-endforeach; 
+
+
+
+endwhile; 
+echo '</div>';
 endif;
 
-
-
-
-echo '</div>';
 echo '</div>';
 echo '</section>';
 endwhile; endif;
@@ -178,8 +190,10 @@ $gallery = get_sub_field('gallery');
 if( $gallery ): 
     echo '<div class="gallery-carousel owl-carousel owl-theme">';
     foreach( $gallery as $image ):
-        
+        echo '<div class="position-relative">';
         echo wp_get_attachment_image($image['id'], 'full','',['class'=>'w-100 img-gallery','style'=>'height:700px;object-fit:cover;'] );
+        echo '<div class="position-absolute w-100 text-center z-1" style="bottom:0;left:0;"><span class="h1 text-white text-shadow d-inline-block">' . $image['alt'] . '</span></div>';
+        echo '</div>';
         
     endforeach; 
     echo '</div>';
@@ -244,14 +258,14 @@ echo '</div>';
 
 $gallery = get_sub_field('gallery_top');
 if( $gallery ): 
-    echo '<div class="col-lg-4 d-flex flex-wrap justify-content-around text-right d-lg-block col-services-gallery">';
+    echo '<div class="col-lg-4 d-flex flex-wrap justify-content-around text-right d-lg-block col-services-gallery pt-lg-0 pt-5">';
         foreach( $gallery as $image ):
 
         echo '<div class="position-relative d-inline-block col-services-gallery-content img-hover overflow-h">';
         echo '<a href="' . wp_get_attachment_image_url($image['id'], 'full') . '" data-lightbox="services-gallery">';
         echo wp_get_attachment_image($image['id'], 'full','',['class'=>'col-services-gallery-img','style'=>'height:250px;width:300px;object-fit:cover;'] );
         echo '</a>';
-        echo '<span class="position-absolute heading text-white text-center text-shadow h2 w-100 text-uppercase bold" style="bottom:20px;left:0%;transform:translate(0,0);">' . $image['title'] . '</span>';
+        echo '<span class="position-absolute heading text-white text-center text-shadow h2 w-100 text-uppercase bold" style="bottom:20px;left:0%;transform:translate(0,0);">' . $image['caption'] . '</span>';
         echo '</div>';
 
         endforeach; 
@@ -348,33 +362,49 @@ echo '<div class="col-12 text-center" style="">';
 echo wp_get_attachment_image(80,'full','',['class'=>'w-75 h-auto position-relative m-auto','style'=>'']);
 echo '</div>';
 
-$gallery = get_sub_field('gallery');
 
-if( $gallery ):
-    $galleryCounter = 0;
-        foreach( $gallery as $image ):
-            $galleryCounter++;
+if(have_rows('categories')): 
+    $categoriesCounter = 0;
+    while(have_rows('categories')): the_row();
+    $categoriesCounter++;
+    
+    if($galleryCounter == 1){
+        echo '<div class="col-lg-4 overflow-h p-0">';
+        // echo '</div>';
+    } else {
+        echo '<div class="col-lg-4 overflow-h pr-0 pl-lg-3 pl-0">';
+    }
+    
+    echo '<div class="position-relative img-hover overflow-h">';
+    
+    $gallery = get_sub_field('gallery');
+    if( $gallery ):
+        $galleryCounter = 0;
+        echo '<div class="fleet-service-carousel owl-carousel owl-theme">';
+            foreach( $gallery as $image ):
+                $galleryCounter++;
 
-            if($galleryCounter == 1){
-                echo '<div class="col-lg-4 overflow-h p-0">';
-                // echo '</div>';
-            } else {
-                echo '<div class="col-lg-4 overflow-h pr-0 pl-lg-3 pl-0">';
-            }
-            
-            echo '<div class="position-relative img-hover overflow-h">';
-            echo '<a href="' . wp_get_attachment_image_url($image['id'], 'full') . '" data-lightbox="fleet-service-gallery">';
-            echo wp_get_attachment_image($image['id'], 'full','',['class'=>'w-100 img-portfolio','style'=>'height:450px;object-fit:cover;'] );
-            echo '</a>';
-            
-            echo '<div class="position-absolute bg-accent text-white text-center w-100 pt-3 pb-3" style="bottom:0;left:0;">';
-            echo '<span><strong>' . $image['title'] . '</strong></span>';
+                echo '<div class="overflow-h">';
+                echo '<a href="' . wp_get_attachment_image_url($image['id'], 'full') . '" data-lightbox="fleet-service-gallery-' . $categoriesCounter . '">';
+                echo wp_get_attachment_image($image['id'], 'full','',['class'=>'w-100 img-portfolio','style'=>'height:450px;object-fit:cover;'] );
+                echo '</a>';
+                echo '</div>';
+                
+                
+            endforeach;
             echo '</div>';
-            echo '</div>';
+        endif;
 
-            echo '</div>';
-        endforeach;
+    echo '<div class="position-absolute bg-accent text-white text-center w-100 pt-3 pb-3 z-1" style="bottom:0;left:0;">';
+    echo '<span><strong>' . get_sub_field('title') . '</strong></span>';
+    echo '</div>';
+    
+    echo '</div>';
+    echo '</div>';
+endwhile; 
+
 endif;
+
 
 echo '</div>';
 echo '</div>';

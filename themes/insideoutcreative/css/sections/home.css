@@ -1,3 +1,17 @@
+/* start of header */
+@media only screen and (min-width:768px) and (max-width:991px) {
+    section.hero {
+        padding: 125px 0 !important;
+    }
+}
+
+@media only screen and (max-width:767px) {
+    section.hero {
+        padding: 20px 0 40px !important;
+    }
+}
+
+/* end of header */
 /* start of intro */
 .col-intro:nth-child(1) .content {
     background: #898989;
@@ -9,6 +23,21 @@
 
 .col-intro:nth-child(3) .content {
     background: black;
+}
+
+.intro-carousel .owl-dots {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+@media only screen and (min-width:768px) and (max-width:991px) {
+    .col-intro:last-child {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
 }
 
 /* end of intro */
@@ -73,7 +102,7 @@
 
 @media only screen and (min-width:992px) {
     .col-services-gallery-content:nth-child(2) {
-        transform: translate(-450px, -50px);
+        transform: translate(-450px, -100px);
         margin-top: -170px;
     }
 
@@ -90,17 +119,36 @@
 
     .col-services-gallery-content:nth-child(4) {
         margin-top: -160px;
-        transform: translate(10px, -20px);
+        transform: translate(10px, -150px);
     }
 
     .col-services-gallery-content:nth-child(5) {
         margin-top: -160px;
-        transform: translate(-35px, 140px);
+        transform: translate(-35px, 0px);
     }
 
     .col-services-gallery .col-services-gallery-content:nth-child(2) .heading {
         bottom: unset;
         top: 20px;
+    }
+}
+
+.col-services-gallery-content:nth-child(2) img.col-services-gallery-img,
+.col-services-gallery-content:nth-child(3) img.col-services-gallery-img,
+.col-services-gallery-content:nth-child(4) img.col-services-gallery-img,
+.col-services-gallery-content:nth-child(5) img.col-services-gallery-img {
+    height: 400px !important;
+    object-position: top;
+}
+
+@media only screen and (min-width:768px) and (max-width:991px) {
+
+    .col-services-gallery-content:nth-child(1) img.col-services-gallery-img,
+    .col-services-gallery-content:nth-child(2) img.col-services-gallery-img,
+    .col-services-gallery-content:nth-child(3) img.col-services-gallery-img,
+    .col-services-gallery-content:nth-child(4) img.col-services-gallery-img,
+    .col-services-gallery-content:nth-child(5) img.col-services-gallery-img {
+        height: 300px !important;
     }
 }
 
