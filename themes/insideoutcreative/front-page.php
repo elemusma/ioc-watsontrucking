@@ -188,7 +188,7 @@ echo '<section class="position-relative overflow-h" style="">';
 
 $gallery = get_sub_field('gallery');
 if( $gallery ): 
-    echo '<div class="gallery-carousel owl-carousel owl-theme">';
+    echo '<div class="gallery-carousel owl-carousel owl-theme mobile-arrows">';
     foreach( $gallery as $image ):
         echo '<div class="position-relative">';
         echo wp_get_attachment_image($image['id'], 'full','',['class'=>'w-100 img-gallery','style'=>'height:800px;object-fit:cover;'] );
@@ -235,7 +235,7 @@ $counterList++;
 if($counterList == 1){
     echo '<li class="text-accent" style="font-size:150%;white-space:nowrap;">' . get_sub_field('title') . '</li>';    
 } else {
-    echo '<li class="text-accent mt-5" style="font-size:150%;white-space:nowrap;">' . get_sub_field('title') . '</li>';
+    echo '<li class="text-accent mt-lg-5 mt-4" style="font-size:150%;white-space:nowrap;">' . get_sub_field('title') . '</li>';
 }
 endwhile;
 echo '</ul>';
@@ -245,7 +245,7 @@ endif;
 
 echo '<div class="col-lg-9 col-md-6">';
 if(get_sub_field('content')):
-    echo '<div class="col-md-9 pb-4">';
+    echo '<div class="col-lg-9 pb-4">';
     echo '<div class="h-100 d-flex">';
     echo '<div>';
     echo get_sub_field('content');
@@ -256,18 +256,33 @@ endif;
 
 $gallery = get_sub_field('gallery_top');
 if( $gallery ): 
-echo '<div class="d-flex">';
+echo '<div class="d-lg-flex d-lg-block d-none">';
 foreach( $gallery as $image ):
     echo '<div class="position-relative d-inline-block img-hover overflow-h">';
     echo '<a href="' . wp_get_attachment_image_url($image['id'], 'full') . '" data-lightbox="services-gallery">';
-    echo wp_get_attachment_image($image['id'], 'full','',['class'=>'col-services-gallery-img col-lg col-md-4','style'=>'height:300px;object-fit:cover;object-position:top;'] );
+    echo wp_get_attachment_image($image['id'], 'full','',['class'=>'col-services-gallery-img col-lg col-12','style'=>'height:300px;object-fit:cover;object-position:top;'] );
     echo '</a>';
     echo '<span class="position-absolute heading text-white text-center text-shadow h4 w-100 text-uppercase bold" style="bottom:20px;left:0%;transform:translate(0,0);">' . $image['caption'] . '</span>';
     echo '</div>';
 endforeach; 
 echo '</div>';
-
 endif;
+
+    echo '</div>';
+
+    echo '<div class="col-12 d-lg-none d-block">';
+    if( $gallery ): 
+        echo '<div class="d-lg-flex justify-content-around">';
+        foreach( $gallery as $image ):
+            echo '<div class="position-relative d-inline-block img-hover overflow-h col-md-6 pl-md-0">';
+            echo '<a href="' . wp_get_attachment_image_url($image['id'], 'full') . '" data-lightbox="services-gallery">';
+            echo wp_get_attachment_image($image['id'], 'full','',['class'=>'col-services-gallery-img w-100','style'=>'height:300px;object-fit:cover;object-position:top;'] );
+            echo '</a>';
+            echo '<span class="position-absolute heading text-white text-center text-shadow h4 w-100 text-uppercase bold" style="bottom:20px;left:0%;transform:translate(0,0);">' . $image['caption'] . '</span>';
+            echo '</div>';
+        endforeach; 
+        echo '</div>';
+        endif;
 
     echo '</div>';
 
@@ -398,7 +413,7 @@ if(have_rows('categories')):
     $gallery = get_sub_field('gallery');
     if( $gallery ):
         $galleryCounter = 0;
-        echo '<div class="fleet-service-carousel owl-carousel owl-theme">';
+        echo '<div class="fleet-service-carousel owl-carousel owl-theme mobile-arrows">';
             foreach( $gallery as $image ):
                 $galleryCounter++;
 
