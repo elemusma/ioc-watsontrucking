@@ -27,15 +27,15 @@ $('.products-carousel').owlCarousel({
 $('.gallery-carousel').owlCarousel({
     // center: true,
     loop: true,
-    margin: 10,
+    margin: 0,
     nav: true,
     dots: false,
     // stagePadding:170,
     autoplay: true,
     autoplayTimeout: 2500,
     autoplayHoverPause: false,
-    animateIn: 'fadeIn',
-    animateOut: 'fadeOut',
+    // animateIn: 'fadeIn',
+    // animateOut: 'fadeOut',
     items: 1
 });
 

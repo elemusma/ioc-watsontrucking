@@ -191,7 +191,7 @@ if( $gallery ):
     echo '<div class="gallery-carousel owl-carousel owl-theme">';
     foreach( $gallery as $image ):
         echo '<div class="position-relative">';
-        echo wp_get_attachment_image($image['id'], 'full','',['class'=>'w-100 img-gallery','style'=>'height:700px;object-fit:cover;'] );
+        echo wp_get_attachment_image($image['id'], 'full','',['class'=>'w-100 img-gallery','style'=>'height:800px;object-fit:cover;'] );
         echo '<div class="position-absolute w-100 text-center z-1" style="bottom:0;left:0;"><span class="h1 text-white text-shadow d-inline-block">' . $image['alt'] . '</span></div>';
         echo '</div>';
         
@@ -222,12 +222,12 @@ echo '<div class="col-12 text-center" style="">';
 echo wp_get_attachment_image(80,'full','',['class'=>'w-75 h-auto position-relative m-auto','style'=>'']);
 echo '</div>';
 
-echo '<div class="col-lg-8">';
+echo '<div class="col-12">';
 echo '<div class="row h-100">';
 
 if(have_rows('titles')):
-echo '<div class="col-lg-4 col-md-5">';
-echo '<div class="h-100 d-flex align-items-center">';
+echo '<div class="col-lg-3 col-md-5">';
+echo '<div class="h-100 d-flex">';
 echo '<ul class="list-unstyled">';
 $counterList = 0;
 while(have_rows('titles')): the_row();
@@ -243,9 +243,10 @@ echo '</div>';
 echo '</div>';
 endif;
 
+echo '<div class="col-lg-9 col-md-6">';
 if(get_sub_field('content')):
-    echo '<div class="col-lg-8 col-md-6">';
-    echo '<div class="h-100 d-flex align-items-end">';
+    echo '<div class="col-md-9 pb-4">';
+    echo '<div class="h-100 d-flex">';
     echo '<div>';
     echo get_sub_field('content');
     echo '</div>';
@@ -253,26 +254,43 @@ if(get_sub_field('content')):
     echo '</div>';
 endif;
 
-echo '</div>';
-echo '</div>';
-
 $gallery = get_sub_field('gallery_top');
 if( $gallery ): 
-    echo '<div class="col-lg-4 d-flex flex-wrap justify-content-around text-right d-lg-block col-services-gallery pt-lg-0 pt-5">';
-        foreach( $gallery as $image ):
-
-        echo '<div class="position-relative d-inline-block col-services-gallery-content img-hover overflow-h">';
-        echo '<a href="' . wp_get_attachment_image_url($image['id'], 'full') . '" data-lightbox="services-gallery">';
-        echo wp_get_attachment_image($image['id'], 'full','',['class'=>'col-services-gallery-img','style'=>'height:250px;width:300px;object-fit:cover;'] );
-        echo '</a>';
-        echo '<span class="position-absolute heading text-white text-center text-shadow h2 w-100 text-uppercase bold" style="bottom:20px;left:0%;transform:translate(0,0);">' . $image['caption'] . '</span>';
-        echo '</div>';
-
-        endforeach; 
+echo '<div class="d-flex">';
+foreach( $gallery as $image ):
+    echo '<div class="position-relative d-inline-block img-hover overflow-h">';
+    echo '<a href="' . wp_get_attachment_image_url($image['id'], 'full') . '" data-lightbox="services-gallery">';
+    echo wp_get_attachment_image($image['id'], 'full','',['class'=>'col-services-gallery-img col-lg col-md-4','style'=>'height:300px;object-fit:cover;object-position:top;'] );
+    echo '</a>';
+    echo '<span class="position-absolute heading text-white text-center text-shadow h4 w-100 text-uppercase bold" style="bottom:20px;left:0%;transform:translate(0,0);">' . $image['caption'] . '</span>';
     echo '</div>';
+endforeach; 
+echo '</div>';
+
 endif;
 
-echo '<div class="col-12 text-center" style="padding-top:150px;">';
+    echo '</div>';
+
+echo '</div>';
+echo '</div>';
+
+// $gallery = get_sub_field('gallery_top');
+// if( $gallery ): 
+//     echo '<div class="col-lg-4 d-flex flex-wrap justify-content-around text-right d-lg-block col-services-gallery pt-lg-0 pt-5">';
+//         foreach( $gallery as $image ):
+
+//         echo '<div class="position-relative d-inline-block col-services-gallery-content img-hover overflow-h">';
+//         echo '<a href="' . wp_get_attachment_image_url($image['id'], 'full') . '" data-lightbox="services-gallery">';
+//         echo wp_get_attachment_image($image['id'], 'full','',['class'=>'col-services-gallery-img','style'=>'height:250px;width:300px;object-fit:cover;'] );
+//         echo '</a>';
+//         echo '<span class="position-absolute heading text-white text-center text-shadow h2 w-100 text-uppercase bold" style="bottom:20px;left:0%;transform:translate(0,0);">' . $image['caption'] . '</span>';
+//         echo '</div>';
+
+//         endforeach; 
+//     echo '</div>';
+// endif;
+
+echo '<div class="col-12 text-center" style="">';
 echo wp_get_attachment_image(143,'full','',['class'=>'w-75 h-auto position-relative m-auto','style'=>'']);
 echo '</div>';
 
