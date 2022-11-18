@@ -401,7 +401,7 @@ if(have_rows('categories')):
     while(have_rows('categories')): the_row();
     $categoriesCounter++;
     
-    if($galleryCounter == 1){
+    if($categoriesCounter == 1){
         echo '<div class="col-lg-4 overflow-h p-0">';
         // echo '</div>';
     } else {

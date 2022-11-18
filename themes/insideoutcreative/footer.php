@@ -34,7 +34,7 @@ echo wp_get_attachment_image($logo['id'],'full',"",['class'=>'w-100 h-auto']);
 <div class="text-center pt-3 pb-3 pl-5 pr-5" style="background:#e1e1e1;">
     <div class="d-flex justify-content-center align-items-center">
         <a href="https://insideoutcreative.io/" target="_blank" rel="noopener noreferrer" style="" class="">
-        <img src="https://insideoutcreative.io/wp-content/uploads/2022/06/created-by-inside-out-creative-black.png" style="width:150px;" class="h-auto ml-2" alt="">
+        <img src="https://insideoutcreative.io/wp-content/uploads/2022/06/created-by-inside-out-creative-black.png" style="width:125px;" class="h-auto ml-2" alt="">
         </a>
     </div>
 </div>
